@@ -1,0 +1,2024 @@
+/* =========================================================
+   GOD'S ZONE CLUB
+   Palette sampled from IMG_4428:
+   teal   #136764
+   cream  #FFF1B8
+   ochre  #EBD98A
+   green  #40906D
+========================================================= */
+
+
+/* =========================
+   LOCAL FONTS
+
+   Put your three font files into /fonts
+   and rename them exactly to:
+   Comfortaa-Bold.ttf
+   GirloSP.otf
+   NauryzRedKeds-Bold.ttf
+========================= */
+
+@font-face {
+    font-family: "Comfortaa Local";
+    src: url("./fonts/Comfortaa-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Girlo";
+    src: url("./fonts/GirloSP2.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nauryz";
+    src: url("./fonts/NauryzRedKeds.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root {
+    --bg: #FFF1B8;
+    --cream: #FFF1B8;
+    --cream-light: #FFF7D7;
+
+    --teal: #136764;
+    --teal-dark: #0B4F4C;
+
+    --green: #40906D;
+    --ochre: #EBD98A;
+
+    --black: #101010;
+    --white: #FFFFFF;
+
+    --border: 2px solid var(--black);
+    --shadow: 7px 8px 0 var(--black);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #d8d3a9;
+
+    color: var(--black);
+
+    font-family:
+        "Comfortaa Local",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+    min-height: 100vh;
+
+    position: relative;
+}
+
+
+/* ОСНОВНОЙ ФОН */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    /* чуть выносим за экран,
+       чтобы blur не создавал края */
+    inset: -30px;
+
+    background-image:
+        url("./img/IMG_4428.JPG");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* главное изменение */
+    filter:
+        blur(7px) brightness(0.78) saturate(0.80);
+
+    opacity: 1.22;
+
+    transform: scale(1.04);
+
+    z-index: -2;
+    pointer-events: none;
+}
+
+
+/* МЯГКИЙ СЛОЙ ПОВЕРХ ФОТО */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        rgba(255, 241, 184, 0.10);
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+svg {
+    display: block;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    width: min(100% - 32px, 760px);
+    margin: 0 auto;
+    padding:
+        35px 0 45px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-wrap {
+    position: relative;
+
+    width: 280px;
+    height: 280px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+/* =========================
+   LOGO CIRCLE
+========================= */
+
+.logo-circle {
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 2px solid #136764;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        9px 10px 0 rgba(19, 103, 100, 0.13);
+
+    transform: rotate(-1deg);
+}
+
+
+/* КАРТИНКА ВНУТРИ КРУГА */
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(2.00);
+
+    object-position: center 46%;
+}
+
+/* =========================
+   MAIN BLACK STICKER
+========================= */
+
+.main-sticker {
+    position: absolute;
+
+    right: -50px;
+    bottom: 28px;
+
+    min-width: 146px;
+
+    padding:
+        13px 17px;
+
+    background: #1c6e64;
+    color: var(--cream-light);
+
+    border-radius: 7px;
+
+    font-family: "Comfortaa Local", sans-serif;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    letter-spacing: .01em;
+
+    transform: rotate(-4deg);
+
+    box-shadow:
+        7px 8px 0 rgba(19, 103, 100, .18);
+
+    z-index: 10;
+}
+
+.main-tape {
+    position: absolute;
+
+    width: 78px;
+    height: 14px;
+
+    left: 38px;
+    top: -8px;
+
+    background: var(--ochre);
+
+    opacity: .95;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================
+   GENERAL DOODLES
+========================= */
+
+.doodle {
+    position: absolute;
+
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   BE YOURSELF
+========================= */
+
+.be-yourself {
+    position: absolute;
+
+    left: 3%;
+    top: 62px;
+
+    padding:
+        9px 18px;
+
+    background: var(--ochre);
+    color: var(--teal-dark);
+
+    font-family: "Girlo", cursive;
+
+    font-size: 21px;
+
+    transform: rotate(-7deg);
+
+    box-shadow:
+        5px 6px 0 rgba(19, 103, 100, .13);
+
+    z-index: 3;
+}
+
+.be-yourself::before,
+.be-yourself::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+
+    width: 10px;
+    height: 100%;
+
+    background: inherit;
+}
+
+.be-yourself::before {
+    left: -6px;
+
+    clip-path:
+        polygon(100% 0,
+            30% 10%,
+            100% 20%,
+            30% 30%,
+            100% 40%,
+            30% 50%,
+            100% 60%,
+            30% 70%,
+            100% 80%,
+            30% 90%,
+            100% 100%);
+}
+
+.be-yourself::after {
+    right: -6px;
+
+    clip-path:
+        polygon(0 0,
+            70% 10%,
+            0 20%,
+            70% 30%,
+            0 40%,
+            70% 50%,
+            0 60%,
+            70% 70%,
+            0 80%,
+            70% 90%,
+            0 100%);
+}
+
+
+/* =========================
+   HERO DECOR
+========================= */
+
+.black-star {
+    left: 16%;
+    top: 164px;
+
+    color:
+        var(--cream-light);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 49px;
+
+    transform: rotate(-8deg);
+}
+
+.outline-star {
+    left: 3%;
+    top: 230px;
+
+    color:
+        var(--cream-light);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 72px;
+
+    font-weight: 700;
+
+    transform: rotate(-10deg);
+}
+
+.small-spark {
+    right: 26%;
+    top: 85px;
+
+    color: var(--green);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 48px;
+
+    transform: rotate(8deg);
+}
+
+
+.teal-cross {
+    right: 14%;
+    top: 166px;
+
+    color: var(--teal);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 72px;
+
+    font-weight: 900;
+
+    transform: rotate(-2deg);
+}
+
+
+/* =========================
+   SPEECH BUBBLE
+========================= */
+
+.hero-bubble {
+    position: absolute;
+
+    right: 1%;
+    top: 86px;
+
+    padding:
+        11px 18px;
+
+    background: var(--teal);
+    color: var(--cream-light);
+
+    border:
+        5px solid var(--cream-light);
+
+    border-radius:
+        50% 50% 50% 40%;
+
+    font-family: "Comfortaa Local", cursive;
+
+    font-size: 18px;
+
+    transform: rotate(7deg);
+
+    box-shadow:
+        6px 7px 0 rgba(19, 103, 100, .13);
+
+    z-index: 3;
+}
+
+.hero-bubble::after {
+    content: "";
+
+    position: absolute;
+
+    left: 34px;
+    bottom: -14px;
+
+    width: 20px;
+    height: 20px;
+
+    background: var(--teal);
+
+    border-left:
+        5px solid var(--cream-light);
+
+    border-bottom:
+        5px solid var(--cream-light);
+
+    transform:
+        skewX(-30deg) rotate(-15deg);
+}
+
+
+/* =========================
+   GZ STICKER
+========================= */
+
+.gz-sticker {
+    position: absolute;
+
+    right: 5%;
+    bottom: 43px;
+
+    padding:
+        7px 13px 5px;
+
+    background: var(--cream-light);
+
+    border-radius: 9px;
+
+    box-shadow:
+        5px 6px 0 rgba(19, 103, 100, .14);
+
+    transform: rotate(5deg);
+
+    white-space: nowrap;
+
+    z-index: 4;
+}
+
+.gz-sticker span {
+    display: inline-block;
+
+    color: var(--teal-dark);
+
+    font-family: "Comfortaa Local", sans-serif;
+
+    font-size: 64px;
+    font-weight: 700;
+
+    line-height: .9;
+}
+
+.gz-sticker .g-letter {
+    transform:
+        rotate(-4deg) translateY(1px);
+}
+
+.gz-sticker .z-letter {
+    margin-left: -3px;
+
+    transform:
+        rotate(5deg) translateY(3px);
+}
+
+
+/* =========================
+   MINI STICKER
+========================= */
+
+.mini-sticker {
+    position: absolute;
+
+    left: 43%;
+    bottom: 15px;
+
+    padding:
+        7px 15px;
+
+    background: var(--green);
+    color: var(--cream-light);
+
+    font-family: "Comfortaa Local", cursive;
+
+    font-size: 17px;
+
+    white-space: nowrap;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        4px 5px 0 rgba(19, 103, 100, .12);
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    position: relative;
+    z-index: 10;
+
+    text-align: center;
+
+    margin-top: -2px;
+}
+
+.intro h1 {
+    margin: 0 auto;
+
+    color: var(--teal-dark);
+
+    font-family:
+        "Nauryz",
+        Impact,
+        sans-serif;
+
+    font-size:
+        clamp(50px, 9vw, 84px);
+
+    font-weight: 700;
+    line-height: .92;
+
+    letter-spacing: .005em;
+
+    /* МЯГКОЕ СВЕЧЕНИЕ */
+    text-shadow:
+        0 0 10px rgba(255, 247, 215, 0.95),
+        0 0 22px rgba(255, 241, 184, 0.95);
+}
+
+.subtitle {
+    margin:
+        14px auto 30px;
+
+    color: var(--teal);
+
+    font-family:
+        "Comfortaa Local",
+        cursive;
+
+    font-size:
+        clamp(20px, 4vw, 28px);
+
+    line-height: 1.15;
+
+    /* МЯГКОЕ СВЕЧЕНИЕ */
+    text-shadow:
+        0 0 7px rgba(255, 247, 215, 0.75),
+        0 0 16px rgba(255, 241, 184, 0.45);
+}
+
+
+/* =========================================================
+   LINKS — GLASS STYLE
+   СОХРАНЯЕМ ИСХОДНЫЕ ЦВЕТА
+========================================================= */
+
+.links {
+    display: grid;
+    gap: 15px;
+    width: min(100%, 620px);
+    margin: 0 auto 42px;
+}
+
+.link {
+    position: relative;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px 17px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 22px;
+
+    color: var(--black);
+
+    backdrop-filter: blur(16px) saturate(115%);
+    -webkit-backdrop-filter: blur(16px) saturate(115%);
+
+    box-shadow: 0 16px 34px rgba(11, 79, 76, .20);
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(120deg,
+            rgba(255, 255, 255, .26),
+            rgba(255, 255, 255, .05) 38%,
+            transparent 68%);
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+
+    width: 135px;
+    height: 135px;
+
+    right: -48px;
+    top: -52px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .10);
+    filter: blur(8px);
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Telegram — фон без изменений, текст/иконки темнее */
+.link-telegram {
+    background: rgba(255, 247, 215, .76);
+    color: var(--teal-dark);
+}
+
+/* Instagram — фон без изменений, текст/иконки темнее */
+.link-instagram {
+    background: rgba(235, 217, 138, .76);
+    color: var(--teal-dark);
+}
+
+/* Location — фон без изменений, текст/иконки темнее */
+.link-map {
+    background: rgba(64, 144, 109, .78);
+    color: var(--teal-dark);
+}
+
+.link:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, .68);
+    box-shadow: 0 20px 42px rgba(11, 79, 76, .27);
+}
+
+.link:active {
+    transform: translateY(-1px) scale(.99);
+}
+
+.link-left {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+    min-width: 0;
+}
+
+.icon {
+    width: 41px;
+    height: 41px;
+
+    flex: 0 0 41px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .08);
+}
+
+.icon svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.link-text {
+    position: relative;
+    z-index: 2;
+
+    font-family: "Comfortaa Local", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+.arrow {
+    position: relative;
+    z-index: 2;
+
+    flex: 0 0 auto;
+
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    transition: transform .22s ease;
+}
+
+.link:hover .arrow {
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   EVENT CARD
+========================================================= */
+
+.event-section {
+    position: relative;
+
+    width:
+        min(100%,
+            650px);
+
+    margin:
+        0 auto 50px;
+}
+
+.event-shadow {
+    position: absolute;
+
+    left: 16px;
+    right: -14px;
+
+    top: 17px;
+    bottom: -14px;
+
+    background:
+        var(--teal);
+
+    border-radius: 14px;
+
+    z-index: 0;
+}
+
+.event-card {
+    position: relative;
+
+    overflow: visible;
+
+    background:
+        var(--cream-light);
+
+    border: var(--border);
+    border-radius: 14px;
+
+    z-index: 1;
+}
+
+.event-tape {
+    position: absolute;
+
+    width: 110px;
+    height: 34px;
+
+    left: -32px;
+    top: -18px;
+
+    background:
+        var(--ochre);
+
+    opacity: .96;
+
+    transform: rotate(-13deg);
+
+    z-index: 3;
+}
+
+.event-top {
+    padding:
+        25px 25px 23px;
+
+    text-align: center;
+
+    border-bottom:
+        2px solid var(--black);
+}
+
+.event-label {
+    position: absolute;
+
+    left: 22px;
+    top: 25px;
+
+    padding:
+        6px 10px;
+
+    background:
+        var(--teal-dark);
+
+    color:
+        var(--cream-light);
+
+    border-radius: 3px;
+
+    font-family: "Comfortaa Local", sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.event-top h2 {
+    margin:
+        17px 0 0;
+
+    color: #553c07;
+
+    font-family: "Comfortaa Local", sans-serif;
+
+    font-size:
+        clamp(29px,
+            5vw,
+            42px);
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.event-info {
+    display: grid;
+    grid-template-columns:
+        repeat(3,
+            1fr);
+}
+
+.event-item {
+    min-height: 89px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        18px 20px;
+
+    color:
+        var(--teal-dark);
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+.event-item+.event-item {
+    border-left:
+        2px solid var(--black);
+}
+
+.event-icon {
+    width: 32px;
+    height: 32px;
+
+    flex:
+        0 0 32px;
+}
+
+.event-icon svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke:
+        currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.event-error {
+    display: none;
+
+    margin:
+        0;
+
+    padding:
+        12px 20px;
+
+    border-top:
+        2px solid var(--black);
+
+    background:
+        var(--ochre);
+
+    color:
+        var(--teal-dark);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+    padding:
+        10px 0 5px;
+
+    color:
+        var(--teal-dark);
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 0;
+    color:
+        var(--teal);
+}
+
+.footer-heart {
+    position: absolute;
+
+    left: 75%;
+    top: -21px;
+
+    color:
+        var(--teal);
+
+    font-family: "Girlo", cursive;
+
+    font-size: 47px;
+
+    transform: rotate(15deg);
+}
+
+.age-pill {
+    display: inline-block;
+
+    padding:
+        7px 13px;
+
+    background:
+        var(--teal);
+
+    color:
+        var(--cream-light);
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+
+    .page {
+        width:
+            min(100% - 24px,
+                520px);
+
+        padding-top: 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 325px;
+    }
+
+    .logo-wrap {
+        width: 220px;
+        height: 220px;
+    }
+
+    .logo-circle {
+        width: 185px;
+        height: 185px;
+    }
+
+    .main-sticker {
+        right: -16px;
+        bottom: 16px;
+
+        min-width: 118px;
+
+        padding:
+            9px 12px;
+
+        font-size: 9px;
+    }
+
+    .main-tape {
+        width: 60px;
+        height: 10px;
+
+        left: 29px;
+        top: -6px;
+    }
+
+    .be-yourself {
+        left: 0;
+        top: 42px;
+
+        padding:
+            6px 10px;
+
+        font-size: 14px;
+    }
+
+    .black-star {
+        left: 5%;
+        top: 133px;
+
+        font-size: 36px;
+    }
+
+    .outline-star {
+        left: 0;
+        top: 205px;
+
+        font-size: 51px;
+    }
+
+    .small-spark {
+        right: 17%;
+        top: 78px;
+
+        font-size: 34px;
+    }
+
+    .teal-cross {
+        right: 1%;
+        top: 151px;
+
+        font-size: 51px;
+    }
+
+    .hero-bubble {
+        right: -2px;
+        top: 77px;
+
+        padding:
+            7px 11px;
+
+        border-width: 3px;
+
+        font-size: 12px;
+    }
+
+    .hero-bubble::after {
+        left: 24px;
+        bottom: -10px;
+
+        width: 15px;
+        height: 15px;
+
+        border-left-width: 3px;
+        border-bottom-width: 3px;
+    }
+
+    .gz-sticker {
+        right: 0;
+        bottom: 36px;
+
+        padding:
+            5px 9px 4px;
+    }
+
+    .gz-sticker span {
+        font-size: 42px;
+    }
+
+    .mini-sticker {
+        left: 40%;
+        bottom: 1px;
+
+        padding:
+            5px 9px;
+
+        font-size: 12px;
+    }
+
+
+    /* INTRO */
+
+    .subtitle {
+        margin-bottom: 24px;
+    }
+
+    /* LINKS */
+
+    .links {
+        gap: 13px;
+        margin-bottom: 37px;
+    }
+
+    .link {
+        min-height: 64px;
+        padding: 11px 14px;
+        border-radius: 18px;
+
+        box-shadow:
+            0 12px 28px rgba(11, 79, 76, .18);
+    }
+
+    .icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .link-text {
+        font-size: 13px;
+    }
+
+    .arrow {
+        font-size: 30px;
+    }
+
+
+
+
+    /* EVENT */
+
+    .event-shadow {
+        left: 10px;
+        right: -8px;
+        bottom: -10px;
+    }
+
+    .event-tape {
+        width: 86px;
+        height: 28px;
+
+        left: -22px;
+        top: -15px;
+    }
+
+    .event-top {
+        padding:
+            45px 16px 20px;
+    }
+
+    .event-label {
+        left: 15px;
+        top: 18px;
+
+        font-size: 9px;
+    }
+
+    .event-top h2 {
+        margin-top: 0;
+    }
+
+    .event-info {
+        grid-template-columns: 1fr;
+    }
+
+    .event-item {
+        min-height: 66px;
+
+        padding:
+            14px 17px;
+    }
+
+    .event-item+.event-item {
+        border-left: 0;
+
+        border-top:
+            2px solid var(--black);
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        gap: 10px;
+    }
+
+    .footer-heart {
+        display: none;
+    }
+
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 390px) {
+
+    .hero {
+        transform:
+            scale(.94);
+
+        transform-origin:
+            top center;
+
+        margin-bottom: -14px;
+    }
+
+    .link-text {
+        font-size: 12px;
+    }
+
+    .mini-sticker {
+        left: 38%;
+    }
+
+}
+
+
+/* =========================================================
+   ABOUT CLUB CARDS
+========================================================= */
+
+.about-section {
+    width: min(100%, 650px);
+    margin: 0 auto 40px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.about-card {
+    position: relative;
+    min-height: 150px;
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 22px;
+    color: var(--cream-light);
+    background: linear-gradient(135deg, rgba(11, 79, 76, .90), rgba(64, 144, 109, .72));
+    box-shadow: 0 16px 34px rgba(11, 79, 76, .20);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: pointer;
+    text-align: left;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.about-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .04) 38%, transparent 68%);
+    pointer-events: none;
+}
+
+.about-card::after {
+    content: "";
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    right: -48px;
+    top: -52px;
+    border-radius: 50%;
+    background: rgba(255, 241, 184, .12);
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(11, 79, 76, .27);
+    border-color: rgba(255, 255, 255, .68);
+}
+
+.about-card:active {
+    transform: translateY(-1px) scale(.99);
+}
+
+.about-number {
+    position: relative;
+    z-index: 2;
+    font-family: "Comfortaa Local", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    opacity: .72;
+}
+
+.about-title {
+    color: #553c07;
+    position: relative;
+    z-index: 2;
+    max-width: 82%;
+    font-family: "Comfortaa Local", sans-serif;
+    font-size: clamp(27px, 5vw, 36px);
+    font-weight: 700;
+    line-height: .95;
+}
+
+.about-arrow {
+    position: absolute;
+    right: 18px;
+    bottom: 15px;
+    z-index: 2;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.about-card:nth-child(2) {
+    color: var(--teal-dark);
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 247, 215, .86),
+            rgba(235, 217, 138, .72));
+
+    border-color:
+        rgba(255, 255, 255, .62);
+}
+
+.about-card:nth-child(3) {
+    color: var(--teal-dark);
+    background: linear-gradient(135deg, rgba(255, 247, 215, .86), rgba(235, 217, 138, .72));
+    border-color: rgba(255, 255, 255, .62);
+}
+
+.about-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(11, 79, 76, .94), rgba(19, 103, 100, .76));
+}
+
+/* =========================================================
+   GLASS POPUP
+========================================================= */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.info-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .24s ease, visibility .24s ease;
+}
+
+.info-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.info-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 29, 27, .48);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.info-glass {
+    position: relative;
+    width: min(100%, 560px);
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 26px;
+    border: 1px solid rgba(255, 255, 255, .36);
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .23), rgba(255, 255, 255, .08));
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .28);
+    backdrop-filter: blur(28px) saturate(125%);
+    -webkit-backdrop-filter: blur(28px) saturate(125%);
+    overflow: hidden;
+    color: var(--cream-light);
+    transform: translateY(16px) scale(.97);
+    transition: transform .24s ease;
+}
+
+.info-modal.is-open .info-glass {
+    transform: translateY(0) scale(1);
+}
+
+.info-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, rgba(255, 255, 255, .24), transparent 42%);
+    pointer-events: none;
+}
+
+.info-glass::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    bottom: -100px;
+    border-radius: 50%;
+    background: rgba(235, 217, 138, .13);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.info-top,
+.info-content,
+.info-bottom {
+    position: relative;
+    z-index: 2;
+}
+
+.info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: #553c07;
+}
+
+.info-close {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, .40);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+    color: var(--cream-light);
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease;
+}
+
+.info-close:hover {
+    background: rgba(255, 255, 255, .16);
+    transform: rotate(4deg);
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 6px 36px;
+}
+
+.info-small {
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .10em;
+    opacity: .72;
+}
+
+.info-content h2 {
+    margin: 0 0 18px;
+    font-family: "Nauryz", sans-serif;
+    font-size: clamp(52px, 10vw, 78px);
+    font-weight: 700;
+    line-height: .88;
+    color: #553c07;
+}
+
+.info-content p {
+    max-width: 440px;
+    margin: 0;
+    font-family: "Comfortaa Local", sans-serif;
+    font-size: clamp(16px, 3.2vw, 20px);
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.info-link {
+    width: fit-content;
+    margin-top: 28px;
+    padding: 10px 14px;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .09);
+    color: var(--cream-light);
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .18s ease, transform .18s ease;
+}
+
+.info-link:hover {
+    background: rgba(255, 255, 255, .17);
+    transform: translateY(-2px);
+}
+
+.info-bottom {
+    margin-top: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    opacity: .62;
+    color: #553c07;
+}
+
+@media (max-width: 620px) {
+    .about-section {
+        margin-bottom: 34px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .about-card {
+        min-height: 110px;
+        padding: 16px 17px;
+    }
+
+    .about-title {
+        font-size: 29px;
+    }
+
+    .about-arrow {
+        right: 15px;
+        bottom: 13px;
+        font-size: 27px;
+    }
+
+    .info-modal {
+        padding: 14px;
+    }
+
+    .info-glass {
+        min-height: min(520px, calc(100vh - 28px));
+        padding: 19px 18px;
+        border-radius: 24px;
+    }
+
+    .info-content {
+        padding: 38px 3px 30px;
+    }
+
+    .info-content h2 {
+        font-size: clamp(47px, 17vw, 68px);
+    }
+
+    .info-content p {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   IOS / IPADOS STABILITY FIX
+   - no Unicode emoji icons
+   - explicit local-font mapping
+   - SVG arrows/doodles render identically on all devices
+========================================================= */
+
+/* readable UI */
+html,
+body,
+button,
+input,
+textarea,
+.link,
+.link-text,
+.event-label,
+.event-item,
+.event-error,
+.footer,
+.age-pill,
+.about-number,
+.info-top,
+.info-small,
+.info-content p,
+.info-link,
+.info-bottom,
+.main-sticker {
+    font-family: "Nauryz", Arial, sans-serif;
+}
+
+/* main heading stays clean and bold */
+.intro h1,
+.about-title {
+    font-family: "Nauryz", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* display font */
+.event-top h2,
+.info-content h2,
+.gz-sticker span {
+    font-family: "Nauryz", Impact, sans-serif;
+    font-weight: 700;
+}
+
+/* handwritten/decorative font */
+.subtitle,
+.be-yourself,
+.hero-bubble,
+.mini-sticker {
+    font-family: "Nauryz", cursive;
+    font-weight: 400;
+}
+
+/* SVG arrows — prevents iOS from turning ↗ into a blue emoji */
+.arrow {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 35px;
+    font-size: 0;
+}
+
+.arrow-svg {
+    width: 29px;
+    height: 29px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.about-arrow {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    font-size: 0;
+}
+
+.about-arrow-svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.info-link-arrow {
+    width: 18px;
+    height: 18px;
+    display: inline-grid;
+    place-items: center;
+}
+
+.info-link-arrow svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* popup close icon */
+.info-close {
+    font-size: 0;
+}
+
+.info-close svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+/* Hero doodles are SVG, not text/emoji */
+.doodle {
+    display: grid;
+    place-items: center;
+    font-size: 0;
+}
+
+.doodle svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.black-star {
+    width: 49px;
+    height: 49px;
+}
+
+.black-star svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 7;
+    stroke-linecap: round;
+}
+
+.outline-star {
+    width: 72px;
+    height: 72px;
+}
+
+.outline-star svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linejoin: round;
+}
+
+.small-spark {
+    width: 48px;
+    height: 48px;
+}
+
+.small-spark svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+.footer-heart svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.teal-cross {
+    width: 72px;
+    height: 72px;
+}
+
+.teal-cross svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 7;
+    stroke-linecap: square;
+}
+
+.footer-heart {
+    width: 47px;
+    height: 47px;
+    font-size: 0;
+}
+
+.footer-heart svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Mobile SVG sizes match the original layout */
+@media (max-width: 620px) {
+    .black-star {
+        width: 36px;
+        height: 36px;
+    }
+
+    .outline-star {
+        width: 51px;
+        height: 51px;
+    }
+
+    .small-spark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .teal-cross {
+        width: 51px;
+        height: 51px;
+    }
+
+    .arrow {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .arrow-svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .about-arrow {
+        width: 28px;
+        height: 28px;
+    }
+
+    .about-arrow-svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* =========================================================
+   FINAL FONT SETTINGS
+========================================================= */
+
+/* Comfortaa — main text and small hero text */
+html,
+body,
+button,
+input,
+textarea,
+.main-sticker,
+.link,
+.link-text,
+.event-label,
+.event-item,
+.event-error,
+.footer,
+.age-pill,
+.about-number,
+.info-top,
+.info-small,
+.info-content p,
+.info-link,
+.info-bottom,
+.subtitle,
+.be-yourself,
+.hero-bubble,
+.mini-sticker,
+.gz-sticker span {
+    font-family: "Comfortaa Local", Arial, sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* Nauryz — exactly the large titles */
+.intro h1,
+.about-title,
+.info-content h2,
+.event-top h2 {
+    font-family: "Nauryz", sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+
+/* SVG/icon elements */
+.arrow,
+.about-arrow,
+.info-close,
+.doodle,
+.footer-heart {
+    font-family: Arial, sans-serif !important;
+}
+
+.hero-heart {
+    display: none !important;
+}
