@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style.css?v=20260908-game-prod1">
+
+    <link rel="preload" href="./fonts/Comfortaa-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./fonts/GirloSP2.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/NauryzRedKeds.ttf" as="font" type="font/ttf" crossorigin>
+
+    <title>Гра — God's Zone</title>
+    <meta name="description" content="Щотижнева гра God's Zone Club">
+</head>
+
+<body>
+
+    <main class="game-page">
+
+        <div class="game-topbar">
+            <a class="game-back" href="./index.html">← Назад</a>
+            <div class="game-brand">GZ GAME</div>
+            <a class="game-home-link" href="./index.html">Головна</a>
+        </div>
+
+        <section class="game-hero">
+            <p class="game-kicker">God's Zone Club</p>
+            <h1>БАЙБЛ КВІЗ</h1>
+            <div class="game-week" id="game-week">Завантаження...</div>
+            <div class="game-points-hint" id="game-points-hint">Завантаження...</div>
+        </section>
+
+        <div class="game-layout">
+
+            <section class="game-panel">
+
+                <div class="game-panel-inner game-login" id="game-login">
+
+                    <h2>ХТО ТИ?</h2>
+
+                    <p class="game-panel-copy">
+                        Введи своє ім’я або нікнейм — після цього відкриються три питання цього дня.
+                    </p>
+
+                    <label class="game-field-label" for="player-name">
+                        Ім’я / нікнейм
+                    </label>
+
+                    <input class="game-name-input" id="player-name" type="text" maxlength="24" autocomplete="nickname"
+                        placeholder="Наприклад: Masha">
+
+                    <button class="game-btn" id="start-game" type="button">
+                        Почати гру
+                    </button>
+
+                    <div class="game-live-status" id="game-live-status">
+                        Підключення...
+                    </div>
+
+                    <div class="game-server-error" id="game-server-error"></div>
+
+                </div>
+
+                <div class="game-panel-inner quiz-wrap" id="quiz-wrap">
+
+                    <div class="quiz-welcome" id="quiz-welcome"></div>
+
+                    <form id="quiz-form"></form>
+
+                    <button class="game-btn" id="submit-answers" type="button">
+                        Відправити відповіді
+                    </button>
+
+                    <div class="game-server-error" id="quiz-server-error"></div>
+
+                </div>
+
+                <div class="game-result" id="game-result">
+
+                    <h2>ГОТОВО ✦</h2>
+
+                    <div class="result-score" id="result-score">0/3</div>
+
+                    <div class="result-points" id="result-points">
+                        +0 балів
+                    </div>
+
+                    <p class="result-note" id="result-note"></p>
+
+                    <a class="game-btn" href="./index.html"
+                        style="display:flex;align-items:center;justify-content:center;text-decoration:none;">
+                        Повернутися на головну
+                    </a>
+
+                </div>
+
+            </section>
+
+            <aside class="game-panel leaderboard">
+
+                <h2 class="leaderboard-title">TOP 5</h2>
+
+                <p class="game-panel-copy">
+                    Більше балів — вище місце. Якщо балів однаково, вище той, хто цього тижня відповів раніше.
+                </p>
+
+                <div class="leaderboard-list" id="leaderboard-list"></div>
+
+                <p class="leaderboard-note">
+                    Рейтинг спільний для всіх учасників і оновлюється автоматично.
+                </p>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <script src="./game.js?v=20260908-confirmed-deploy-1"></script>
+
+</body>
+
+</html>
